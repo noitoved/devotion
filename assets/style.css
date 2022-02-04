@@ -1,0 +1,222 @@
+@font-face {
+  font-family:"Gotham-Bold";
+  src:url("fonts/Gotham-Bold.woff2") format("woff2"),url("fonts/Gotham-Bold.woff") format("woff"),url("fonts/Gotham-Bold.otf") format("opentype");
+  font-style:normal;font-weight:400;
+}
+
+@font-face {
+  font-family:"Gotham-Book";
+  src:url("fonts/Gotham-Book.woff2") format("woff2"),url("fonts/Gotham-Book.woff") format("woff"),url("fonts/Gotham-Book.otf") format("opentype");
+  font-style:normal;font-weight:400;
+}
+
+@font-face {
+  font-family:"Gotham-Medium";
+  src:url("fonts/Gotham-Medium.woff2") format("woff2"),url("fonts/Gotham-Medium.woff") format("woff"),url("fonts/Gotham-Medium.otf") format("opentype");
+  font-style:normal;font-weight:400;
+}
+
+:root {
+  --site-padding: 5vh;
+  --nav-font-size: 5vh;
+}
+
+* {
+  color: #aa9601;
+  font-family: 'Gotham-Book';
+  box-sizing: border-box;
+  line-height: 125%;
+}
+
+html, body  {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.375em;
+  color: #FFD101;
+  line-height: 1.1;
+}
+
+p {
+  margin-top: 0;
+}
+
+body {
+  background: #000;
+  font-size: 24px;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+a:hover {
+  color: #ffd101;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mb-1 { margin-bottom: 1rem }
+.mb-2 { margin-bottom: 2rem }
+.mb-3 { margin-bottom: 3rem }
+
+/* --- */
+
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-flex;
+}
+
+aside {
+  position: fixed;
+  width: 360px;
+  height: 100%;
+  padding: var(--site-padding);
+}
+
+html.index aside { width: 100%; }
+
+aside nav.main a.brand {
+  display: inline-block;
+}
+
+aside nav.main a.burger {
+  display: none;
+}
+
+aside nav.main a.burger svg rect,
+aside nav.main a.burger svg path {
+  fill: currentcolor;
+}
+
+aside nav.main li a {
+  display: inline-block;
+  height: 100%;
+}
+
+aside nav.main ul:hover a.blur:not(:hover) {
+  transition: .5s;
+  opacity: .5;
+  filter:blur(2.2px);
+}
+
+main {
+  position: absolute;
+  right: 0;
+  width: calc(100% - 360px);
+  padding: var(--site-padding);
+}
+
+main img { width: 100%; }
+
+.one-third-image{ width:40%; }
+
+div.contact
+{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: var(--site-padding);
+  color: #aa9601;
+  font-size: 1.2rem;
+  font-family: 'Gotham-Medium';
+  line-height: 1.6em;
+  opacity: .7;
+  border 0;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+/* R E F A C T O R                                                           */
+/* ------------------------------------------------------------------------- */
+
+.quote { padding-left: 30px; }
+
+
+/* I N D E X                                                                 */
+/* ------------------------------------------------------------------------- */
+
+html.index nav.main {
+  font-size: var(--nav-font-size);
+}
+
+video.index {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow-x: hidden;
+}
+
+/* M E D I A  Q U E R I E S                                                  */
+/* ------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 420px) {
+  html {
+    font-size: 14px !important;
+  }
+
+  html.single aside {
+    position: absolute;
+    height: auto;
+  }
+
+  html.single aside nav.main a.brand {
+    display: inline-block;
+  }
+
+  html.single aside nav.main a.burger {
+    display: block;
+    position: absolute;
+    top:   calc(var(--site-padding) - 0.4rem);
+    right: calc(var(--site-padding) - 1.5rem);
+  }
+
+  html.single aside nav ul, html.single div.contact {
+    display: none;
+  }
+
+  html.single main {
+    margin-top: 4rem;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Menu open */
+
+  html.single.menu-on {
+    overflow-y: hidden;
+  }
+
+  html.single.menu-on aside {
+    z-index: 2;
+    background: black;
+    position: fixed;
+    width: 360px;
+    height: 100%;
+  }
+
+  html.single.menu-on aside nav ul,
+  html.single.menu-on div.contact {
+    display: block;
+  }
+}
