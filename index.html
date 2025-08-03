@@ -1128,7 +1128,7 @@ at Overgaden – Copenhagen</p>
     lastScrollY = window.scrollY; // ✅ store scroll position
     lightboxImg.src = images[index].src;
     lightbox.classList.add('visible');
-    document.body.style.top = `-${lastScrollY}px`;
+    document.body.style.top = -${lastScrollY}px;
     document.body.style.position = 'fixed'; // ✅ prevent background scroll
   }
 
@@ -1241,39 +1241,8 @@ at Overgaden – Copenhagen</p>
     });
   });
 </script>
-<script>
-  // Swipe support for lightbox
-  let startX = 0;
-  let endX = 0;
-
-  lightbox.addEventListener('touchstart', (e) => {
-    startX = e.changedTouches[0].screenX;
-  });
-
-  lightbox.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-
-  function handleSwipe() {
-    const diff = startX - endX;
-
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        // Swiped left
-        showNext();
-      } else {
-        // Swiped right
-        showPrev();
-      }
-    }
-  }
-</script>
 
 
 
 </body>
 </html>
-
-
-
