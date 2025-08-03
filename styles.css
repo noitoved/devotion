@@ -360,8 +360,6 @@ body.menu-open {
 /* --- 2. Make image gallery swipeable in mobile portrait --- */
 @media (max-width: 768px) and (orientation: portrait) {
   .gallery {
-    display: flex;
-    overflow-x: auto;
     gap: 1rem;
     padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
