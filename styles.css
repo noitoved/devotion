@@ -46,6 +46,7 @@ header {
   left: 0;
   right: 0;
   background: var(--bg);
+  height: 60px;  
   padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--accent);
   display: flex;
@@ -75,23 +76,25 @@ text-shadow: .02px .03px .33px red, -.03px -.02px 1px blue; .02px -.02px 1px gre
 
 .menu {
   position: fixed;
-  top: 0;
+  top: 60px; /* accounts for header height */
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px); /* subtract header height */
   background: var(--bg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   z-index: 999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  background: transparent; /* background: red - temporary debug color */
-  text-shadow: 2px 3px 5px red, -3px -2px 4.5px blue; 2px -2px 5px green;
-
+  overflow-y: auto;
+  padding: 2rem 1rem;
+  overscroll-behavior: contain;
+  text-shadow: 2px 3px 5px red, -3px -2px 4.5px blue, 2px -2px 5px green;
 }
+
 
 .menu.show {
   opacity: 1;
@@ -153,7 +156,7 @@ letter-spacing: 0.1em;
 
 
 main {
-  padding: 5rem 1.5rem 2rem; /* Adds horizontal space */
+  padding: 6rem 1.5rem 2rem; /* Adds horizontal space */
   margin: 0 auto;
   max-width: 1024px; /* Constrains line width */
 }
