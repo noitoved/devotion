@@ -46,6 +46,7 @@ header {
   left: 0;
   right: 0;
   background: var(--bg);
+  height: 60px;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--accent);
   display: flex;
@@ -343,3 +344,36 @@ body.menu-open {
   max-width: 100%;
   height: auto;
 }
+
+
+/* --- 1. Make mobile menu scrollable --- */
+.menu {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2rem 1rem;
+}
+
+
+/* --- 3. Adjust font sizes on phones --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .menu a {
+    font-size: 1.1rem;
+  }
+
+  .menu-title {
+    font-size: 1rem;
+  }
+
+  .menu-info-link {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
