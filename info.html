@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erdal Bilici</title>
+  <!-- Load Roboto Mono font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="site-title">Erdal Bilici</div>
+    <button class="burger" aria-expanded="false">☰</button>
+
+
+   <nav class="menu" id="menu">
+<p class="menu-title">list of works</p>
+<a href="index.html#rest2025">Rest</a>
+<a href="index.html#untitled2025">Untitled</a>
+<a href="index.html#grotto2025">Grotto</a>
+<a href="index.html#tether2024">Tether</a>
+<a href="index.html#heavymetal2024">Heavy Metal</a>
+<a href="index.html#diptych2024">Diptych: +++ and L’eclisse</a>
+<a href="index.html#monad2024">Monad</a>
+<a href="index.html#underaspell2023">Under a Spell</a>
+<a href="index.html#picnicscape2023">Picnic Scape</a>
+<a href="index.html#prospect2023">Prospect</a>
+<a href="index.html#dread2023">Dread</a>
+<a href="index.html#differenceengine2023">Difference Engine</a>
+<a href="index.html#devotion2021">Devotion</a>
+<a href="index.html#bufferswoosh2019">buffer, swoosh!</a>
+<a href="index.html#torsotvers2018">Torso Tvers</a>
+<a href="index.html#aphenomenon2016">A Phenomenon</a>
+<a href="index.html#earliersketchesandworks2000">Earlier Sketches and Works</a>
+<a href="info.html" class="menu-info-link">info</a>
+
+
+
+
+
+    </nav>
+  </header>
+
+
+
+
+
+
+ <div id="page-content">
+  <main>
+
+  <section>
+    <p>Erdal Bilici is an artist based in Copenhagen whose practice explores time as a vehicle of presentation rather than representation. He graduated from the Royal Danish Academy of Fine Arts in 2024. He also finished the post graduate program, Anne Marie Carl-Nielsen Programme for Art in Public Space. His works have been exhibited at various institutions including Kunsthal Charlottenborg, Nikolaj Kunsthal, Gl Strand, Den Frie, Bilsart, Mamut Art Project, 5533 and Kusthal 44Møen, within and outside of Denmark. He has been part of artist run spaces and projects Jennifee-See Alternate and Dummy in Copenhagen and actively organizing exhibition and events. </p>
+
+<p>Spanning multiple forms, Bilici’s practice investigates how the logics of the image permeates our mundane reality, and how perceptual technologies mediate our understandings of place, property, history, nature, and biography. Drawing inspiration from local traditions, geological time, he works with contemporary perceptual technologies with remnants of architecture and modernity, connections between human creations, urban landscapes, and spatial psychology to try to culminate a poetic image of decay and cultural entropy via narrative methods.   
+
+</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      Email:
+      <a href="mailto:contact@erdalbilici.com">contact@erdalbilici.com</a>
+    </p>
+    <p>
+      IG:
+      <a href="https://instagram.com/erdal_bilici" target="_blank" rel="noopener noreferrer">
+        instagram.com/erdal_bilici
+      </a>
+    </p>
+  </section>
+
+
+
+
+
+
+ </main>
+  </div>
+
+<button id="modeToggle" aria-label="Toggle dark mode"></button>
+
+<script>
+  const body = document.body;
+  const modeToggle = document.getElementById('modeToggle');
+
+  function updateModeIcon() {
+    if (body.classList.contains('dark')) {
+      modeToggle.style.background = '#fff';
+    } else {
+      modeToggle.style.background = '#000';
+    }
+  }
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    updateModeIcon();
+  });
+
+  // Initial icon color
+  updateModeIcon();
+</script>
+
+
+
+
+
+<script>
+  const modeToggle = document.getElementById('modeToggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    updateModeIcon();
+  });
+
+  function updateModeIcon() {
+    if (body.classList.contains('dark')) {
+      modeToggle.style.background = '#fff';
+    } else {
+      modeToggle.style.background = '#000';
+    }
+  }
+
+  // Ensure correct icon color on load
+  updateModeIcon();
+</script>
+
+
+
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Only trigger once
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+
+<div class="lightbox-overlay" id="lightbox">
+  <img src="" alt="lightbox image">
+</div>
+
+<script>
+  const images = Array.from(document.querySelectorAll('.gallery img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  let currentIndex = -1;
+  let lastScrollY = 0;
+
+  function showLightbox(index) {
+    currentIndex = index;
+    lastScrollY = window.scrollY; // ✅ store scroll position
+    lightboxImg.src = images[index].src;
+    lightbox.classList.add('visible');
+    document.body.style.top = `-${lastScrollY}px`;
+    document.body.style.position = 'fixed'; // ✅ prevent background scroll
+  }
+
+  function hideLightbox() {
+    lightbox.classList.remove('visible');
+    currentIndex = -1;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, lastScrollY); // ✅ restore scroll position
+  }
+
+  function showNext() {
+    if (currentIndex < images.length - 1) {
+      showLightbox(currentIndex + 1);
+    }
+  }
+
+  function showPrev() {
+    if (currentIndex > 0) {
+      showLightbox(currentIndex - 1);
+    }
+  }
+
+  // Click to open
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      showLightbox(index);
+    });
+  });
+
+  // Click outside image to close
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) hideLightbox();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('visible')) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+        showNext();
+        break;
+      case 'ArrowLeft':
+        showPrev();
+        break;
+      case 'Escape':
+        hideLightbox();
+        break;
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('menu');
+    const body = document.body;
+
+    function openMenu() {
+      menu.classList.add('show');
+      body.classList.add('menu-open');
+      burger.setAttribute('aria-expanded', 'true');
+      burger.textContent = '✕';
+    }
+
+    function closeMenu() {
+      menu.classList.remove('show');
+      body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.textContent = '☰';
+    }
+
+    function toggleMenu(e) {
+      e.stopPropagation(); // Prevent outside click from firing
+      if (menu.classList.contains('show')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Toggle menu on burger click
+    burger.addEventListener('click', toggleMenu);
+
+    // Close menu when a menu link is clicked
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          closeMenu();
+        }, 300);
+      });
+    });
+
+    // ✅ NEW: Close menu when clicking inside menu but NOT on a link
+    menu.addEventListener('click', (e) => {
+      if (e.target.tagName.toLowerCase() !== 'a') {
+        closeMenu();
+      }
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      const clickedInsideMenu = menu.contains(e.target);
+      const clickedBurger = burger.contains(e.target);
+
+      if (menu.classList.contains('show') && !clickedInsideMenu && !clickedBurger) {
+        closeMenu();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
