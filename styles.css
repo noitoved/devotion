@@ -92,7 +92,7 @@ text-shadow: .02px .03px .33px red, -.03px -.02px 1px blue; .02px -.02px 1px gre
   overflow-y: auto;
   padding: 2rem 1rem;
   overscroll-behavior: contain;
-  text-shadow: 2px 3px 5px white, -3px -2px 4.5px blue, 2px -2px 5px green;
+  text-shadow: 2px 3px 5px red, -3px -2px 4.5px blue, 2px -2px 5px green;
 }
 
 
@@ -182,6 +182,7 @@ h2 {
   max-width: 1920px;
   margin: 0 auto;
   border: none;
+height: auto;
 }
 
 
@@ -376,7 +377,7 @@ body.menu-open {
   }
 
   .gallery img {
-    width: 100%;
+    width: 100vw;
     max-width: 100vw;
     height: auto;
   }
