@@ -92,7 +92,7 @@ text-shadow: .02px .03px .33px red, -.03px -.02px 1px blue; .02px -.02px 1px gre
   overflow-y: auto;
   padding: 2rem 1rem;
   overscroll-behavior: contain;
-  text-shadow: 2px 3px 5px red, -3px -2px 4.5px blue, 2px -2px 5px green;
+  text-shadow: 2px 3px 5px white, -3px -2px 4.5px blue, 2px -2px 5px green;
 }
 
 
@@ -371,10 +371,13 @@ body.menu-open {
     min-width: 85vw;
     flex-shrink: 0;
     scroll-snap-align: center;
+    margin: 0;
+    padding: 0;
   }
 
   .gallery img {
     width: 100%;
+    max-width: 100vw;
     height: auto;
   }
 }
@@ -398,16 +401,4 @@ body.menu-open {
   }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .gallery img {
-    width: 100vw;
-    max-width: 100vw;
-    height: auto;
-  }
-
-  .gallery figure {
-    margin: 0;
-    padding: 0;
-  }
-}
 
