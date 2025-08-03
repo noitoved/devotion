@@ -19,7 +19,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 /**/
-text-shadow: .2px .3px 1px red, -.3px -.2px 5px blue; .2px -.2px 5px green;
+text-shadow: .2px .3px 1px red, -.3px -.2px 5px blue, .2px -.2px 5px green;
 }
 
 body.dark {
@@ -346,5 +346,53 @@ body.menu-open {
 
 
 
+/* --- 1. Make mobile menu scrollable --- */
+.menu {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2rem 1rem;
+}
+
+/* --- 2. Make image gallery swipeable in mobile portrait --- */
+@media (max-width: 768px) and (orientation: portrait) {
+  .gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery figure {
+    min-width: 85vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* --- 3. Adjust font sizes on phones --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  .menu a {
+    font-size: 1.1rem;
+  }
+
+  .menu-title {
+    font-size: 1rem;
+  }
+
+  .menu-info-link {
+    font-size: 0.9rem;
+  }
+}
 
 
